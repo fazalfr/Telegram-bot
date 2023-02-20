@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>User Call Counts</title>
+</head>
+<body>
+    <h1>User Call Counts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Stupid Count</th>
+                <th>Fat Count</th>
+                <th>Dumb Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for joke_call in joke_calls %}
+            <tr>
+                <td>{{ joke_call.user.username }}</td>
+                <td>{{ joke_call.call_count|default_if_none:0 }}</td>
+                <td>{{ joke_call.call_count_fat|default_if_none:0 }}</td>
+                <td>{{ joke_call.call_count_dumb|default_if_none:0 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
